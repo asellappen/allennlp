@@ -13,19 +13,21 @@ language: python
 
 disct: bionic
 arch:
+    - amd64
     - ppc64le
     
 python:
     - 3.7  
 before_install:
-   #pytorch not supported for ppc64le
+   #pytorch not supproted for ppc64le
    - if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
-        grep -iv  "torch" Makefile>/tmp/Makefiletmp;
-        grep -iv nltk /tmp/Makefiletmp>Makefile;
+        grep -iv  "torch" Makefile >/tmp/Makefiletmp;
+        grep -iv  "nltk" /tmp/Makefiletmp >/tmp/Makefiletmp2;
+        mv /tmp/Makefiletmp2 Makefile;
+        cat Makefile;
      fi
      
 install:
-    - cat Makefile
     - make install
     - make format
 
