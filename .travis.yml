@@ -26,4 +26,3 @@ script:
     - make lint
     - make typecheck
     - make test-with-cov
-    - cd allennlp-models && make test
