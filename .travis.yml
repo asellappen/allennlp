@@ -1,0 +1,29 @@
+# ----------------------------------------------------------------------------
+#
+# Package             : allennlp
+# Source Repo         : https://github.com/allenai/allennlp
+# Travis Job Link     : https://travis-ci.com/github/asellappen/allennlp/
+# Created travis.yml  : Yes
+# Maintainer          : Arumugam N S <asellappen@yahoo.com> / Priya Seth<sethp@us.ibm.com>
+#
+# Script License      : Apache License, Version 2 or later
+#
+# ----------------------------------------------------------------------------
+language: python
+
+arch:
+    - amd64
+    - ppc64le
+    
+python:
+    - 3.7  
+  
+install:
+    - make install
+    - make format
+
+script:	
+    - make lint
+    - make typecheck
+    - make test-with-cov
+    - cd allennlp-models && make test
