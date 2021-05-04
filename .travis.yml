@@ -18,9 +18,13 @@ arch:
     
 python:
     - 3.7  
-    - 3.6
-    - 3.9
-  
+before_install:
+   #pytorch not supproted for ppc64le
+   - if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
+        grep -v  "torch" Makefile >/tmp/Makefiletmp
+        mv /tmp/Makefiletmp Makefile
+     fi
+     
 install:
     - make install
     - make format
