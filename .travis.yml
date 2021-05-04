@@ -21,7 +21,7 @@ python:
 before_install:
    #pytorch not supproted for ppc64le
    - if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
-        grep -iv  "torch" Makefile | grep -iv nltk;
+        grep -iv  "torch" Makefile | grep -iv nltk > /tmp/Makefiletmp;
         mv /tmp/Makefiletmp Makefile;
      fi
      
