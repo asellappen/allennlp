@@ -13,7 +13,7 @@ language: python
 
 disct: bionic
 arch:
-    - amd64
+
     - ppc64le
     
 python:
@@ -23,7 +23,9 @@ before_install:
    - if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
         grep -iv  "torch" Makefile >/tmp/Makefiletmp;
         grep -iv  "nltk" /tmp/Makefiletmp >/tmp/Makefiletmp2;
+        grep -iv 'wheel" dev-requirements.txt /tmp/dev-requirements.txt;
         mv /tmp/Makefiletmp2 Makefile;
+        mv  /tmp/dev-requirements.txt dev-requirements.txt;
         cat Makefile;
      fi
      
