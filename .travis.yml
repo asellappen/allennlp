@@ -24,8 +24,9 @@ before_install:
         grep -iv  "torch" Makefile >/tmp/Makefiletmp;
         grep -iv  "nltk" /tmp/Makefiletmp >/tmp/Makefiletmp2;
         grep -iv "wheel" dev-requirements.txt > /tmp/dev-requirements.txt;
+        grep -iv "setuptools" /tmp/dev-requirements.txt >/tmp/dev-requirements2.txt;
         mv /tmp/Makefiletmp2 Makefile;
-        mv  /tmp/dev-requirements.txt dev-requirements.txt;
+        mv  /tmp/dev-requirements2.txt dev-requirements.txt;
         cat Makefile;
      fi
      
