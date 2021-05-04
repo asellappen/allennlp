@@ -19,10 +19,10 @@ arch:
 python:
     - 3.7  
 before_install:
-   #pytorch not supproted for ppc64le
+   #pytorch not supported for ppc64le
    - if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
-        grep -iv  "torch" Makefile | grep -iv nltk > /tmp/Makefiletmp;
-        mv /tmp/Makefiletmp Makefile;
+        grep -iv  "torch" Makefile>/tmp/Makefiletmp;
+        grep -iv nltk /tmp/Makefiletmp>Makefile;
      fi
      
 install:
