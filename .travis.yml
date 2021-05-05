@@ -28,7 +28,9 @@ before_install:
         grep -iv "setuptools" /tmp/dev-requirements.txt >/tmp/dev-requirements2.txt;
         mv /tmp/Makefiletmp3 Makefile;
         mv  /tmp/dev-requirements2.txt dev-requirements.txt;
+        echo "printing make file and req files aru";
         cat Makefile;
+        cat dev-requirements.txt;
      fi
      
 install:
