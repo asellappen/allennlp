@@ -31,6 +31,7 @@ before_install:
         echo "printing make file and req files aru";
         cat Makefile;
         cat dev-requirements.txt;
+        sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran;
      fi
      
 install:
