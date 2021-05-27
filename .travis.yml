@@ -24,7 +24,6 @@ before_install:
    #pytorch not supproted for ppc64le
    - if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
         sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran;
-        pip install -r requirements.txt -f https://download.pytorch.org/whl/cu110/torch_stable.html;
      fi
      
 install:
