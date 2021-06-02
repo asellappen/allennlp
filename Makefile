@@ -88,6 +88,7 @@ install :
 	pip install --upgrade --upgrade-strategy eager -e . -r dev-requirements.txt
 	# These nltk packages are used by the 'checklist' module.
 	python -c 'import nltk; [nltk.download(p) for p in ("wordnet", "wordnet_ic", "sentiwordnet")]'
+	@python -c 'from allennlp.version import VERSION; print("make install done Arumugam")'
 #
 # Documention helpers.
 #
