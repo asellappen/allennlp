@@ -89,6 +89,7 @@ install :
 	# Docs are not built on docker, and the runner is unable to find
 	# the nltk_data folder. Hence, we download the requirement.
 	python -c 'import nltk; nltk.download("sentiwordnet")'
+	python -c 'from allennlp.version import VERSION; print("make install done Arumugam")'
 #
 # Documention helpers.
 #
