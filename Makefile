@@ -79,6 +79,16 @@ benchmarks :
 #
 
 .PHONY : install
+bkinstall :
+	# Ensure pip, setuptools, and wheel are up-to-date.
+	pip install --upgrade pip setuptools wheel
+	# Due to a weird thing with pip, we may need egg-info before running `pip install -e`.
+	# See https://github.com/pypa/pip/issues/4537.
+	python setup.py install_egg_info
+	pip install --upgrade --upgrade-strategy eager -e . -r dev-requirements.txt
+	# Docs are not built on docker, and the runner is unable to find
+	# the nltk_data folder. Hence, we download the requirement.
+	python -c 'import nltk; nltk.download("sentiwordnet")'
 install :
 	# Ensure pip, setuptools, and wheel are up-to-date.
 	pip install --upgrade pip setuptools wheel
@@ -89,7 +99,6 @@ install :
 	# Docs are not built on docker, and the runner is unable to find
 	# the nltk_data folder. Hence, we download the requirement.
 	python -c 'import nltk; nltk.download("sentiwordnet")'
-	python -c 'from allennlp.version import VERSION; print("make install done Arumugam")'
 #
 # Documention helpers.
 #
