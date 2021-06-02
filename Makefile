@@ -95,6 +95,7 @@ install :
 	# Due to a weird thing with pip, we may need egg-info before running `pip install -e`.
 	# See https://github.com/pypa/pip/issues/4537.
 	python setup.py install_egg_info
+	pip install --upgrade --upgrade-strategy eager -e . -r dev-requirements.txt
 
 #
 # Documention helpers.
