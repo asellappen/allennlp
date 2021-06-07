@@ -1,5 +1,2 @@
 #### TESTING-RELATED PACKAGES ####
 
-# Checks style, syntax, and other useful errors.
-flake8
-
